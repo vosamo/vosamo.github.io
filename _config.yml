@@ -1,6 +1,6 @@
 markdown: rdiscount
 permalink: /:year/:month/:title/
-url: http://geeklu.com
-author: 卢克
+url: http://vosamo.github.io
+author: vosamo
 pygments: true
 paginate: 24
