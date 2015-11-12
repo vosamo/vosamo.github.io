@@ -2,5 +2,6 @@ markdown: rdiscount
 permalink: /:year/:month/:title/
 url: http://vosamo.github.io
 author: vosamo
-pygments: true
+highlighter: pygments
+gems: [jekyll-paginate]
 paginate: 24
