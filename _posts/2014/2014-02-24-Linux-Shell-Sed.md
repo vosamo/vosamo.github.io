@@ -49,6 +49,7 @@ nl /etc/passwd |sed -n '5.7p'
 
 ifconfig eth0
 得到结果为：
+
 ![](http://i.imgur.com/i4JNd9A.jpg)
 
 利用grep查找“inet addr”
