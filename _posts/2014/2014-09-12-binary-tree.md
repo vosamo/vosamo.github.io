@@ -171,7 +171,7 @@ bool isBST(BiTree p)
 ## 4、求两个节点的最近公共祖先
 如果两个节点分别位于当前节点的左右两侧，则当前节点就是最近公共祖先，如果两个节点位于当前节点的一侧，则在该侧继续查找，直到两个节点不在某节点同一侧，就找到了公共祖先。
 
-{% highlight c++ %}
+{% highlight c++ linenos%}
 
 BiTree FindCommAncestor(BiTree root,BiTree p,BiTree q)
 {
