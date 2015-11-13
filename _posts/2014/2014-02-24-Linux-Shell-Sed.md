@@ -1,3 +1,14 @@
+---
+layout: post
+title: Linux sed命令
+categories:
+- 计算机
+- 操作系统
+tags:
+- Linux
+- Shell
+---
+
 >Linux中sed命令可以对数据进行替换，删除，新增，选取特定行等功能。功能强大，使用方便。
 
 ## sed的用法如下：

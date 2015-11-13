@@ -1,3 +1,14 @@
+---
+layout: post
+title: Linux Shell数组
+categories:
+- 计算机
+- 操作系统
+tags:
+- Linux
+- Shell
+---
+
 >在Linux shell中经常用到数组，在Linux中，数组的表示方法为：
 array=(val1 val2 val3 .....)元素默认以空格符为间隔，下标从0开始。array[1]=val2
 
