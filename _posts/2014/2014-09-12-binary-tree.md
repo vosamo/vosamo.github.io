@@ -10,7 +10,7 @@ tags:
 
 ## 1、二叉树的建立及遍历
 
-```C++
+{% highlight c++ linenos%}
 #include<iostream>
 #include<stdio.h>
 #include<malloc.h> // malloc()等
@@ -43,7 +43,7 @@ BiTree CreateBiTree()
 
  }
 
-/********************三种递归遍历算法********************/
+//三种递归遍历算法
 //先序递归遍历二叉树
 void PreOrderTraverse(BiTree root)
 {
@@ -77,7 +77,7 @@ void PostOrderTraverse(BiTree root)
     }
 }
 
-/********************三种非递归遍历算法********************/
+//三种非递归遍历算法
 
 
  int main()
@@ -89,7 +89,7 @@ void PostOrderTraverse(BiTree root)
    return 0;
  }
 
-```
+{% endhighlight %}
 
 ## 2、根据前序遍历/中序遍历恢复后序遍历
 假设某二叉树的前序遍历为：DBACEGF，中序遍历为：ABCDEFG，求其后序遍历。
@@ -101,8 +101,7 @@ void PostOrderTraverse(BiTree root)
 
 关键在于**根据前序遍历和中序遍历找出根节点并正确划分左右子树**，然后就是递归了，递归的条件和位置很重要。
 
-```C++
-
+{% highlight c++ linenos%}
 #include<stdio.h>
 char post[7];
 void postFromPreMid(char *pre,char *mid,int length)
@@ -131,13 +130,13 @@ int main()
 
     return 0;
 }
-```
+
+{% endhighlight %}
 
 ## 3、判断一棵二叉树是否是二叉搜索树
 所谓二叉搜索树就是，二叉树要么为空，要么满足：如果左子树不为空，则左子树节点值都小于根节点；如果右子树不为空，则右子树节点值都大于根节点。二叉搜索树也叫二叉查找树，也叫二叉排序树，中序遍历一个二叉搜索树会得到一个有序的序列。
 
-```C++
-
+{% highlight c++ linenos%}
 bool isBST(BiTree p)
 {
 	if(NULL == p)
@@ -167,12 +166,12 @@ bool isBST(BiTree p)
 		return true;
 }
 
-```
+{% endhighlight linenos%}
 
 ## 4、求两个节点的最近公共祖先
 如果两个节点分别位于当前节点的左右两侧，则当前节点就是最近公共祖先，如果两个节点位于当前节点的一侧，则在该侧继续查找，直到两个节点不在某节点同一侧，就找到了公共祖先。
 
-```C++
+{% highlight c++ %}
 
 BiTree FindCommAncestor(BiTree root,BiTree p,BiTree q)
 {
@@ -194,9 +193,7 @@ bool Contain(BiTree root,BiTree p)
 	else
 		return Contain(root->lchild,p) || Contain(root->rchild,q);
 }
-
-```
-
+{% endhighlight %}
 
 
 
