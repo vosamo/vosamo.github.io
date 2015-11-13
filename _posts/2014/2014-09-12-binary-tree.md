@@ -4,8 +4,8 @@ title: 二叉树的遍历
 categories:
 - Programming
 tags:
-- iOS
-- handoff
+- C/C++
+- algorithm
 ---
 
 ## 1、二叉树的建立及遍历
