@@ -3,6 +3,5 @@ permalink: /:year/:month/:title/
 url: http://vosamo.github.io
 author: vosamo
 highlighter: pygments
-highlight: true
 gems: [jekyll-paginate]
 paginate: 24
