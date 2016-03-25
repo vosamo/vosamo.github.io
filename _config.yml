@@ -1,7 +1,7 @@
-markdown: rdiscount
+markdown: kramdown
 permalink: /:year/:month/:title/
 url: http://vosamo.github.io
 author: vosamo
-highlighter: pygments
+highlighter: rouge
 gems: [jekyll-paginate]
 paginate: 24
