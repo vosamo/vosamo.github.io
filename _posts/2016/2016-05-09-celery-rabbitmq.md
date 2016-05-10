@@ -111,4 +111,54 @@ res = add.delay(3,4)    #交给worker处理
 
 查看任务是否执行完，可以用ready()方法`res.ready()`，获取返回值可以使用get()方法，`res.get()`。
 
+# 使用配置文件
 
+对于简单的应用来说，可以直接在tasks文件中通过`app = Celery(...)`的方式来实例化。
+
+当然，创建了Celery实例之后，也可以修改配置：
+
+单个：
+
+```
+app.conf.CELERY_TASK_SERIALIZER = 'json'
+```
+
+或批量（支持dict语法）：
+
+```
+app.conf.update(
+    BROKER_URL = 'amqp://',
+    CELERY_RESULT_BACKEND = 'amqp://',
+    CELERY_TASK_SERIALIZER = 'json',
+    CELERY_ACCEPT_CONTENT = ['json'],
+    CELERY_RESULT_SERIALIZER = 'json',
+    CELERY_TIMEZONE = 'Asia/Shanghai',
+    CELERY_ENABLE_UTC = True
+)
+```
+
+但是对于大的项目不推荐这种硬编码的方式，最好将Celery的配置保存在一个配置文件中，便于集中管理和使用。
+
+新建一个配置文件celeryconfig.py，写入配置内容：
+
+```
+BROKER_URL = 'amqp://'
+CELERY_RESULT_BACKEND = 'amqp://'
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Asia/Shanghai'
+CELERY_ENABLE_UTC = True
+CELERY_IMPORTS = ("tasks",)
+```
+
+然后在tasks文件中`app.config_from_object('celeryconfig')`。
+
+
+## 参考资料：
+
+- [利用Celery构建Web服务的后台任务调度模块](http://www.ibm.com/developerworks/cn/opensource/os-cn-celery-web-service/index.html)
+- [分布式任务队列Celery快速上手](http://my.oschina.net/zhangxu0512/blog/212447)
+- [并行Python框架Celery的配置方法](http://my.oschina.net/u/2306127/blog/420833)
+- [Celery使用简介](http://liyangliang.me/posts/2015/11/a-introduction-to-celery)
+- [How to use celery with rabbitmq to queue tasks](http://www.digitalocean.com/community/tutorials/how-to-use-celery-with-rabbitmq-to-queue-tasks-on-an-ubuntu-vps)
