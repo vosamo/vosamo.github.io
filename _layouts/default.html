@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html" xml:lang="en" lang="en-us">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="{{ site.author }}" />
@@ -16,7 +16,7 @@
   </head>
   <body>
     <div id="container">
-      <div id="main" role="main">
+      <br id="main" role="main">
         <header>
         <div class="buttons">
           <a href="/" class="ss-icon" title="Go to homepage">home</a>
@@ -41,6 +41,24 @@
         </header>
         <hr>
         <h1>{{ page.title }}</h1>
+        </br>
+        {% if page.categories %}
+        <span class="categories">
+          in categories
+          {% for cat in page.categories %}
+          <a href="/categories/#{{ cat }}" title="{{ cat }}">{{ cat }}</a>&nbsp;
+          {% endfor %}
+        </span>
+        {% endif %}
+        {% if page.tags %}
+        <span class="tags">
+          tagged with
+          {% for tag in page.tags %}
+          <a href="/tags/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>&nbsp;
+          {% endfor %}
+        </span>
+        {% endif %}
+
         <article class="content">
         {{ content | safe }}
         </article>

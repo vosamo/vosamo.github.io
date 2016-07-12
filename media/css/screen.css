@@ -78,6 +78,14 @@ body>div {
     box-shadow: 0 0 10px 0 #cfcfcf;
     border-top: 6px solid #95C3CB;
 }
+#tag_cloud {
+    padding-left: 12px;
+    padding-right: 80px;
+    padding-bottom: 12px;
+}
+#tag_cloud a {
+    margin: 10px 10px 0px 0px;
+}
 h1 {
     font-size: 28px;
     line-height: 28px;
