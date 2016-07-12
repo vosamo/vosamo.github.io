@@ -11,7 +11,7 @@
     <link href='/media/webfonts/ss-social.css' rel='stylesheet'>
     <link href='/media/webfonts/ss-standard.css' rel='stylesheet'>
     <link href="/media/css/screen.css" rel="stylesheet">
-
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
   </head>
   <body>
@@ -42,22 +42,7 @@
         <hr>
         <h1>{{ page.title }}</h1>
         </br>
-        {% if page.categories %}
-        <span class="categories">
-          in categories
-          {% for cat in page.categories %}
-          <a href="/categories/#{{ cat }}" title="{{ cat }}">{{ cat }}</a>&nbsp;
-          {% endfor %}
-        </span>
-        {% endif %}
-        {% if page.tags %}
-        <span class="tags">
-          tagged with
-          {% for tag in page.tags %}
-          <a href="/tags/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>&nbsp;
-          {% endfor %}
-        </span>
-        {% endif %}
+
 
         <article class="content">
         {{ content | safe }}
