@@ -26,9 +26,21 @@
           <a href="/about" class="ss-icon" title="About" >user</a>
           <a href="/feed" class="ss-icon" title="Subscribe by RSS" >rss</a>
         </div>
-        <h1>{{ page.title }}</h1>
+          <a class="site-title" href="/">
+            <h1>
+              <strong>
+                <span style="color:#39B3D7">V</span>
+                <span style="color:#ED9C28">o</span>
+                <span style="color:#47A447">s</span>
+                <span style="color:#D9534F">a</span>
+                <span style="color:#3276B1">m</span>
+                <span style="color:#722bb1">o</span>
+              </strong>
+            </h1>
+          </a>
         </header>
         <hr>
+        <h1>{{ page.title }}</h1>
         <article class="content">
         {{ content | safe }}
         </article>
