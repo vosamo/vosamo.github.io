@@ -1,10 +1,7 @@
 ---
 layout: default
 ---
-
-<section class="post">
-
-    <!--文章标题下面的标签-->
+<!--文章标题下面的标签-->
         <i class="fa fa-calendar"></i>{{ page.date | date:"%Y-%m-%d" }}&nbsp;&nbsp;&nbsp;
         {% if page.categories %}
         <span class="categories">
@@ -22,6 +19,7 @@ layout: default
         </span>
         {% endif %}
 <br><br>
+<section class="post">
 {{ content }}
 </section>
 <section class="meta">
