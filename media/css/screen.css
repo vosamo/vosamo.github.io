@@ -187,6 +187,7 @@ dl .meta {
 }
 
 .listing-item,.listing-seperator{list-style-type:none;}
+.listing-item{margin:10px 40px;}
 .listing-item a{
     padding:.2em 1em;
 
