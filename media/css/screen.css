@@ -180,6 +180,7 @@ img.avatar {
 }
 .site-title h1 {
     margin: 0px;
+    letter-spacing: -3px;
 }
 .meta{
     text-align:right;
