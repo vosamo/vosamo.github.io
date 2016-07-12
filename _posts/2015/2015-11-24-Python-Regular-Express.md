@@ -10,7 +10,7 @@ tags:
 > 处理文本和数据是件大事，在自然语言处理、文本处理等方面都离不开正则表达式。正则表达式为高级文本模式匹配，以及搜索替代等功能提供了基础。正则表达式是一些由字符和特殊符号组成的字符串，它们描述了这些字符和字符的某种重复方式，因此能按某种模式匹配一系列有相似特征的字符串。
 
 ## 正则表达式使用的特殊符号
-<center> ![](http://images.cnblogs.com/cnblogs_com/huxi/Windows-Live-Writer/Python_10A67/pyre_ebb9ce1c-e5e8-4219-a8ae-7ee620d5f9f1.png)</center>
+<center> ![](/img/pyre.png)</center>
 <center>正则表达式中最常见的符号和字符</center>
 
 ### 用管道符号（|）匹配多个正则表达式模式
