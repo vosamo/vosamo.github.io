@@ -38,6 +38,9 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+header.post-header {
+    margin: 0px 0px 13px;
+}
 body {
 	line-height: 1;
 }
@@ -117,6 +120,11 @@ p, ul, ol, dl {
 p.intro {
     font-size: 24px;
 	line-height: 32px;
+}
+p.post-meta {
+    font-size: 13px;
+    margin: 0px;
+    color: #818181;
 }
 ul {
     list-style-type: square;

@@ -2,23 +2,22 @@
 layout: default
 ---
 <!--文章标题下面的标签-->
-        <i class="fa fa-calendar"></i>{{ page.date | date:"%Y-%m-%d" }}&nbsp;&nbsp;&nbsp;
-        {% if page.categories %}
-        <span class="categories">
-          {% for cat in page.categories %}
-          <i class="fa fa-folder-open"></i><a href="/categories/#{{ cat }}" title="{{ cat }}">{{ cat }}</a>&nbsp;&nbsp;&nbsp;
-          {% endfor %}
-        </span>
-        {% endif %}
-        <i class="fa fa-tags"></i>
-        {% if page.tags %}
-        <span class="tags">
-          {% for tag in page.tags %}
-          <a href="/tags/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>&nbsp;
-          {% endfor %}
-        </span>
-        {% endif %}
-<br><br>
+        <!--<i class="fa fa-calendar"></i>{{ page.date | date:"%Y-%m-%d" }}&nbsp;&nbsp;&nbsp;-->
+        <!--{% if page.categories %}-->
+        <!--<span class="categories">-->
+          <!--{% for cat in page.categories %}-->
+          <!--<i class="fa fa-folder-open"></i><a href="/categories/#{{ cat }}" title="{{ cat }}">{{ cat }}</a>&nbsp;&nbsp;&nbsp;-->
+          <!--{% endfor %}-->
+        <!--</span>-->
+        <!--{% endif %}-->
+        <!--<i class="fa fa-tags"></i>-->
+        <!--{% if page.tags %}-->
+        <!--<span class="tags">-->
+          <!--{% for tag in page.tags %}-->
+          <!--<a href="/tags/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>&nbsp;-->
+          <!--{% endfor %}-->
+        <!--</span>-->
+        <!--{% endif %}-->
 <section class="post">
 {{ content }}
 </section>
