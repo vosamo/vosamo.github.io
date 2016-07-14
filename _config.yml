@@ -1,7 +1,7 @@
-markdown: kramdown
+mardown: redcarpet
+highlighter: pygments
 permalink: /:year/:month/:title/
 url: http://vosamo.github.io
 author: vosamo
-highlighter: rouge
 gems: [jekyll-paginate]
 paginate: 24
