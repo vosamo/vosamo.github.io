@@ -175,5 +175,9 @@ Util.get_include_uri = function () {
 
 重新访问，成功连接。
 
-### 具体可参考我的示例项目：[django_noVNC](https://github.com/vosamo/django_noVNC)
+**具体可参考我的示例项目：**[django_noVNC](https://github.com/vosamo/django_noVNC)
+
+## 参考资料
+
+- [The use of NoVNC two: the integration of Novnc into the Django project](http://www.programering.com/a/MDN4YzNwATg.html)
 
