@@ -53,7 +53,7 @@ abc123: 192.168.1.101:5900
 
 在工程wsgi文件中添加以下代码：
 
-```
+{% highlight python %}
 def worker():
     '''
         Multi process service VNC start
@@ -84,7 +84,7 @@ def start_websockify():
     print u'vnc proxy started..'
 
 start_websockify()
-```
+{% endhighlight %}
 
 记得import相关的包。这样在启动django时就会启动noVNC代理进程。
 
