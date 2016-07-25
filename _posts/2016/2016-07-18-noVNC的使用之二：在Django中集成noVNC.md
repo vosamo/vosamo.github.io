@@ -1,6 +1,6 @@
 ---
 layout: post
-title: noVNC的使用之二：在Django中集成noVNC
+title: noVNC的使用之二(在Django中集成noVNC)
 categories:
 - Linux
 tags:
@@ -92,7 +92,7 @@ start_websockify()
 
 创建app:`python manage.py startapp novnc`，在其views.py中添加代码：
 
-```
+{% highlight python %}
 from django.shortcuts import render
 from django.conf import settings
 def run_vnc(request):
@@ -107,14 +107,14 @@ def run_vnc(request):
 
     # return render(request, 'vnc_auto.html', context_dict)
     return render(request, 'vnc.html')
-```
+{% endhighlight %}
 
 在工程urls.py中添加url映射：
 
-```
+{% highlight python %}
 from novnc import views
 url(r'^vnc/$', views.run_vnc)
-```
+{% endhighlight %}
 
 ## 运行
 
@@ -126,50 +126,50 @@ url(r'^vnc/$', views.run_vnc)
 
 在vnc.html末尾处
 
-```
+{% highlight javascript %}
 <script src="include/util.js"></script>
 <script src="include/ui.js"></script>
-```
+{% endhighlight %}
 
 修改为：
 
-```
+{% highlight javascript %}
 <script src="/static/include/util.js"></script>
 <script src="/static/include/ui.js"></script>
-```
+{% endhighlight %}
 
 重新访问，填写Host,Port,Password,Token等，连接，打开F12调试，发现若干js文件请求不到，包括`webutil.js, base64.js, websock.js`等，排查发现，这些文件是在`ui.js`中加载的：
 
-```
+{% highlight javascript %}
 Util.load_scripts(["webutil.js", "base64.js", "websock.js", "des.js",
                        "keysymdef.js", "keyboard.js", "input.js", "display.js",
                        "rfb.js", "keysym.js", "inflator.js"]);
-```
+{% endhighlight %}
 
 *load_scripts()*函数位于`util.js`文件中，其中的一段代码用来创建<script></script>标签：
 
-```
+{% highlight javascript %}
 script = document.createElement('script');
         script.type = 'text/javascript';
         script.src = Util.get_include_uri() + files[f];
         console.log("loading script: " + script.src);
-```
+{% endhighlight %}
 
 其中的*get_include_uri()*函数用来获得js文件的路径:
 
-```
+{% highlight javascript %}
 Util.get_include_uri = function () {
     return (typeof INCLUDE_URI !== "undefined") ? INCLUDE_URI : "include/";
 };
-```
+{% endhighlight %}
 
 我们修改为：
 
-```
+{% highlight javascript %}
 Util.get_include_uri = function () {
     return (typeof INCLUDE_URI !== "undefined") ? INCLUDE_URI : "/static/include/";
 };
-```
+{% endhighlight %}
 
 这样django就能根据settings.py文件中设置的STATIC_URL找到所需的js文件了。
 
