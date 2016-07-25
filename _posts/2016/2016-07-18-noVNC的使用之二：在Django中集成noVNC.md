@@ -175,3 +175,5 @@ Util.get_include_uri = function () {
 
 重新访问，成功连接。
 
+### 具体可参考我的示例项目：[django_noVNC](https://github.com/vosamo/django_noVNC)
+
