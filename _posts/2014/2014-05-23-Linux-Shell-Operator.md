@@ -3,10 +3,8 @@ layout: post
 title: Linux Shell运算符
 categories:
 - 计算机
-- 操作系统
 tags:
 - Linux
-- Shell
 ---
 
 >和其他语言一样，在shell中变量的运算包括数学运算和逻辑运算。
