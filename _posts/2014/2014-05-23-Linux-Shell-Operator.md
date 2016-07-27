@@ -3,6 +3,7 @@ layout: post
 title: Linux Shell运算符
 categories:
 - 计算机
+- 操作系统
 tags:
 - Linux
 ---

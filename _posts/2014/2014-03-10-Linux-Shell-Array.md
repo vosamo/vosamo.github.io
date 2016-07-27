@@ -6,7 +6,6 @@ categories:
 - 操作系统
 tags:
 - Linux
-- Shell
 ---
 
 >在Linux shell中经常用到数组，在Linux中，数组的表示方法为：
