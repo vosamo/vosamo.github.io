@@ -1,5 +1,5 @@
 mardown: redcarpet
-highlighter: pygments
+highlighter: rouge
 permalink: /:year/:month/:title/
 url: http://vosamo.github.io
 author: vosamo
