@@ -41,6 +41,8 @@ abc123: 192.168.1.101:5900
 123abc: 192.168.1.102:5901
 ```
 
+token配置文件比较灵活，如果有多个被控终端（or虚拟机），可以把所有终端的token写在同一配置文件中，也可以每个终端写一个配置文件。
+
 ## 在项目中启动novnc代理
 
 有以下几种方法：
@@ -180,4 +182,7 @@ Util.get_include_uri = function () {
 ## 参考资料
 
 - [The use of NoVNC two: the integration of Novnc into the Django project](http://www.programering.com/a/MDN4YzNwATg.html)
-
+- [linux tigervnc-server安装使用](http://blog.chinaunix.net/uid-21142030-id-3255389.html)
+- [novnc安装与使用](http://blog.csdn.net/chao_beyond/article/details/24922397)
+- [webvnc之novnc实战](http://blog.csdn.net/happyteafriends/article/details/41344751)
+- [使用 noVNC 开发 Web 虚拟机控制台](http://www.tuicool.com/articles/m6z6Nn)
