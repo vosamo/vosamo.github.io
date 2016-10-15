@@ -177,10 +177,15 @@ Util.get_include_uri = function () {
 
 重新访问，成功连接。
 
+**提示：**事实上，作为转发代理的websockify(位于utils文件夹下)和显示被控终端的静态文件（vnc.html,vnc_auto.html以及所引用的css,js文件）不一定非要在同一台机器上。我们只需要在作为代理的机器上启动websockify代理进程，然后在能够访问该代理机器的任意一台机器上在浏览器中打开vnc.html或vnc_auto.html，输入代理机器地址、端口、密码和token，即可访问对应的终端或虚拟机。当然也可以在打开html文件的同时将host、port、token作为查询字符串参数传入，即可自动连接。即：`vnc_auto.html?host=127.0.0.1&port=8787&token=abc123`。
+
+
+
 **具体可参考我的示例项目：**[django_noVNC](https://github.com/vosamo/django_noVNC)
 
 ## 参考资料
 
+- [noVNC官方文档](https://github.com/kanaka/noVNC/blob/master/README.md)
 - [The use of NoVNC two: the integration of Novnc into the Django project](http://www.programering.com/a/MDN4YzNwATg.html)
 - [linux tigervnc-server安装使用](http://blog.chinaunix.net/uid-21142030-id-3255389.html)
 - [novnc安装与使用](http://blog.csdn.net/chao_beyond/article/details/24922397)
