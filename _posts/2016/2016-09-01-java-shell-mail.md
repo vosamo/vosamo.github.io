@@ -124,9 +124,74 @@ public class OSMailSender {
 
 {% endhighlight %}
 
+## sendmail的反向解析
+
+测试时发现，调用sendmail发邮件，发着发着突然收不到邮件了。于是查看sendmail的状态：
+
+`systemctl status sendmail`查看状态和`sendmail -bp`查看sendmail队列，结果发现：发邮件的请求都在队列里面排队积压，就是发布出去，如下：
+
+```
+[root@mycentos ~]# sendmail -bp
+:call <SNR>110_SparkupNext()
+
+/var/spool/mqueue (22 requests)
+-----Q-ID----- --Size-- -----Q-Time----- ------------Sender/Recipient-----------
+u9Q36LgF014458*     469 Wed Oct 26 11:08 <root@mycentos.com>
+      8BITMIME   (host map: lookup (163.com): deferred)
+
+ <vosamo007@163.com>
+ <buptlsl@163.com>
+ u9Q37L92014515      469 Wed Oct 26 11:09 <root@mycentos.com>
+       8BITMIME   (host map: lookup (163.com): deferred)
+ <vosamo007@163.com>
+ <buptlsl@163.com>
+ u9Q38LYx014576      469 Wed Oct 26 11:10 <root@mycentos.com>
+       8BITMIME   (host map: lookup (163.com): deferred)
+ <vosamo007@163.com>
+ <buptlsl@163.com>
+ u9Q39L8e014657      469 Wed Oct 26 11:11 <root@mycentos.com>
+       8BITMIME   (host map: lookup (163.com): deferred)
+ <vosamo007@163.com>
+ <buptlsl@163.com>
+ u9Q3ALl5014719      469 Wed Oct 26 11:12 <root@mycentos.com>
+       8BITMIME   (host map: lookup (163.com): deferred)
+ <vosamo007@163.com>
+ <buptlsl@163.com>
+ u9Q3BLY7014775      469 Wed Oct 26 11:13 <root@mycentos.com>
+       8BITMIME   (host map: lookup (163.com): deferred)
+ <vosamo007@163.com>
+ <buptlsl@163.com>
+ u9Q3CLwF014832      469 Wed Oct 26 11:14 <root@mycentos.com>
+       8BITMIME   (host map: lookup (163.com): deferred)
+ <vosamo007@163.com>
+ <buptlsl@163.com>
+ u9Q3DLlR014890      469 Wed Oct 26 11:15 <root@mycentos.com>
+       8BITMIME   (host map: lookup (163.com): deferred)
+ <vosamo007@163.com>
+ <buptlsl@163.com>
+ u9Q3ELVj014995      469 Wed Oct 26 11:16 <root@mycentos.com>
+       8BITMIME   (host map: lookup (163.com): deferred)
+ <vosamo007@163.com>
+ <buptlsl@163.com>
+ u9Q3FLJV015053      469 Wed Oct 26 11:17 <root@mycentos.com>
+       8BITMIME   (host map: lookup (163.com): deferred)
+ <vosamo007@163.com>
+ <buptlsl@163.com>
+ u9Q3GLal015110      469 Wed Oct 26 11:18 <root@mycentos.com>
+       8BITMIME   (host map: lookup (163.com): deferred)
+ <vosamo007@163.com>
+ <buptlsl@163.com>
+ u9Q3HLwh015220      469 Wed Oct 26 11:19 <root@mycentos.com>
+       8BITMIME   (host map: lookup (163.com): deferred)
+```
+
+其中的`host map: lookup (163.com): deferred`，这表示发送邮件出现了延迟，网上说导致这个问题的原因是sendmail默认会进行反向解析，而我自己的机器上没有合法的域名和MX解析记录。解决的办法很简单，打开文件`/etc/mail/sendmail.cf`，找到`#0 ResolverOptions=+AAONLY`这一行，把注释去掉就可以了。虽然问题是解决了，但是还不是很明白其中的原因，为什么反向地址解析和发邮件延迟会有关系呢？后续研究一下这个问题再写一篇文章吧。
 
 ## 参考资料：
-
 - [java Runtime.getRuntime().exec 调用系统脚本/命令注意事项](http://blog.csdn.net/q1059081877q/article/details/48050735)
 - [java执行带重定向或管道的shell命令的问题](http://www.cnblogs.com/lisperl/archive/2012/06/28/2568494.html)
-- [sendmail+formail乱码](http://blog.sina.com.cn/s/blog_4097063801018v6r.html) 
+- [sendmail+formail乱码](http://blog.sina.com.cn/s/blog_4097063801018v6r.html)
+- [解决sendmail的“host map: lookup (domain): deferred”](http://blog.sina.com.cn/s/blog_7cc54c730101mf21.html)
+- [邮件正向解析和反向解析](http://287049522.blog.51cto.com/525338/662791)
+- [DNS中的正向解析与反向解析 及 nslookup命令使用](http://blog.csdn.net/guyue35/article/details/50464495)
+- [Linux下架构安全邮件服务器之Sendmail](http://guojiping.blog.51cto.com/5635432/987990/)
