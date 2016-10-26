@@ -128,7 +128,7 @@ public class OSMailSender {
 
 测试时发现，调用sendmail发邮件，发着发着突然收不到邮件了。于是查看sendmail的状态：
 
-`systemctl status sendmail`查看状态和`sendmail -bp`查看sendmail队列，结果发现：发邮件的请求都在队列里面排队积压，就是发布出去，如下：
+`systemctl status sendmail`查看状态和`sendmail -bp`查看sendmail队列，结果发现：发邮件的请求都在队列里面排队积压，就是发不出去，如下：
 
 ```
 [root@mycentos ~]# sendmail -bp
