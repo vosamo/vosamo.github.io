@@ -128,5 +128,5 @@ public class OSMailSender {
 ## 参考资料：
 
 - [java Runtime.getRuntime().exec 调用系统脚本/命令注意事项](http://blog.csdn.net/q1059081877q/article/details/48050735)
-- [java Runtime.getRuntime().exec 调用系统脚本/命令注意事项](http://www.cnblogs.com/lisperl/archive/2012/06/28/2568494.html)
+- [java执行带重定向或管道的shell命令的问题](http://www.cnblogs.com/lisperl/archive/2012/06/28/2568494.html)
 - [sendmail+formail乱码](http://blog.sina.com.cn/s/blog_4097063801018v6r.html) 
