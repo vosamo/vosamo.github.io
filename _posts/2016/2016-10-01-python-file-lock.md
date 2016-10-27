@@ -30,7 +30,7 @@ int flock(int fd, int operation);
 
 ## 示例代码
 
-{ %highlight python% }
+{% highlight python %}
 # coding=utf-8
 import fcntl
 import os, time
@@ -60,7 +60,7 @@ for i in range(5):
     file.close() # unlocks the file
     print 'release lock'
     time.sleep(2)
-{ %endhighlight% }
+{% endhighlight %}
 
 在多个终端中启动上面的程序，会发现它们相互阻塞。
 
