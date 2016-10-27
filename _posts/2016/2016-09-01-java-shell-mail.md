@@ -187,6 +187,8 @@ u9Q36LgF014458*     469 Wed Oct 26 11:08 <root@mycentos.com>
 
 其中的`host map: lookup (163.com): deferred`，这表示发送邮件出现了延迟，网上说导致这个问题的原因是sendmail默认会进行反向解析，而我自己的机器上没有合法的域名和MX解析记录。解决的办法很简单，打开文件`/etc/mail/sendmail.cf`，找到`#0 ResolverOptions=+AAONLY`这一行，把注释去掉就可以了。虽然问题是解决了，但是还不是很明白其中的原因，为什么反向地址解析和发邮件延迟会有关系呢？后续研究一下这个问题再写一篇文章吧。
 
+另外，邮件队列中积压的请求删除的话，只需要把`/var/spool/mqueue/`下面的文件全部删除就可以了。
+
 ## 参考资料：
 - [java Runtime.getRuntime().exec 调用系统脚本/命令注意事项](http://blog.csdn.net/q1059081877q/article/details/48050735)
 - [java执行带重定向或管道的shell命令的问题](http://www.cnblogs.com/lisperl/archive/2012/06/28/2568494.html)
