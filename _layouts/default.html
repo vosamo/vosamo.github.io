@@ -48,10 +48,10 @@
         {% endif %}
           <p class="post-meta">
             {% if page.categories %}
-          <i class="fa fa-calendar"></i>{{ page.date | date:"%Y-%m-%d" }}&nbsp;&nbsp;&nbsp;
+          <i class="fa fa-calendar"></i> &nbsp{{ page.date | date:"%Y-%m-%d" }}&nbsp;&nbsp;&nbsp;
           <span class="categories">
             {% for cat in page.categories %}
-            <i class="fa fa-folder-open"></i><a href="/categories/#{{ cat }}" title="{{ cat }}">{{ cat }}</a>&nbsp;&nbsp;&nbsp;
+            <i class="fa fa-folder-open"></i> &nbsp<a href="/categories/#{{ cat }}" title="{{ cat }}">{{ cat }}</a>&nbsp;&nbsp;&nbsp;
             {% endfor %}
           </span>
           {% endif %}
@@ -59,8 +59,7 @@
           {% if page.tags %}
           <i class="fa fa-tags"></i>
           <span class="tags">
-            {% for tag in page.tags %}
-            <a href="/tags/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>&nbsp;
+            {% for tag in page.tags %} &nbsp<a href="/tags/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>&nbsp;
             {% endfor %}
           </span>
           {% endif %}
