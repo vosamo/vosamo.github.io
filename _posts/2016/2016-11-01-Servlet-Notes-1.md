@@ -15,7 +15,7 @@ Java Servlet是运行在Web服务器或应用服务器上的程序，它是作�
 
 下图展示了Servlet在Web应用程序中的位置：
 
-<center> ![servlet架构](/img/servlet-arch.jpg) </center>
+![servlet架构](/img/servlet-arch.jpg)
 
 ## Servlet的任务
 
@@ -103,7 +103,7 @@ public void destroy() {
 
 下图展示了一个典型的Servlet生命周期：
 
-<center> ![Servlet生命周期](/img/Servlet-LifeCycle.jpg) </center>
+![Servlet生命周期](/img/Servlet-LifeCycle.jpg)
 
 - 第一个到达服务器的HTTP请求被委派到Servlet容器
 - Servlet容器在调用service()方法之前加载 Servlet
