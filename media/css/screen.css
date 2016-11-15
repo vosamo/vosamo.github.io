@@ -179,8 +179,8 @@ em {
 strong {
     font-weight: 700;
 }
-p>img {
-    text-align: center;
+img {
+    margin: 0 auto;
 }
 img.avatar {
     position: relative;
