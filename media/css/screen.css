@@ -180,6 +180,7 @@ strong {
     font-weight: 700;
 }
 img {
+    display: block;
     margin: 0 auto;
 }
 img.avatar {
