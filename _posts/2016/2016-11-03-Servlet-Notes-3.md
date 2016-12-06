@@ -26,9 +26,16 @@ POST方法是比较可靠的提交数据的方法，和GET方法不同，POST方
 HTTP协议把请求分为三部分：状态行、请求头、消息主体。类似于下面这样：
 
 ```
-<method> <request-url> <version>
+<method>
+<request-url>
+<version>
 <headers>
-<entity-body></entity-body></headers></version></request-url></method>
+<entity-body>
+</entity-body>
+</headers>
+</version>
+</request-url>
+</method>
 ```
 
 协议规定POST提交的数据必须放在消息主体（entity-body）中，但协议没有规定数据必须使用什么编码方式。数据提交之后，服务端能够成功解析才行，服务端通常根据请求头中的Content-Type字段来获知消息主体中的数据是何种编码方式，再对消息主体进行解析。
@@ -68,3 +75,9 @@ Content-Type: application/json;charset=utf-8
 **text/xml**
 
 XML-RPC协议就是一种使用 HTTP 作为传输协议，XML 作为编码方式的远程调用规范。
+
+## 使用Servlet获取表单数据
+
+- getParameter()：您可以调用 request.getParameter() 方法来获取表单参数的值
+- getParameterValues()：如果参数出现一次以上，则调用该方法，并返回多个值，例如复选框
+- getParameterNames()：如果您想要得到当前请求中的所有参数的完整列表，则调用该方法

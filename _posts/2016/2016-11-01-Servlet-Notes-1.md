@@ -50,13 +50,14 @@ public void init() throws ServletException {
 
 ### service()方法
 
-service()方法是执行实际任务的方法，也就是响应http请求的方法。Servlet对象时单例，但访问是多线程。
+service()方法是执行实际任务的方法，也就是响应http请求的方法。Servlet对象是单例，但访问是多线程。
 
 每次服务器接收到一个Servlet请求时，服务器会产生一个新的线程并调用服务。service() 方法检查 HTTP 请求类型（GET、POST、PUT、DELETE 等），并在适当的时候调用 doGet、doPost、doPut，doDelete 等方法。
 
 {% highlight java %}
-public void init() throws ServletException {
-  // 初始化代码...
+public void service(ServletRequest request,
+                    ServletResponse response)
+      throws ServletException, IOException{
 }
 {% endhighlight %}
 
