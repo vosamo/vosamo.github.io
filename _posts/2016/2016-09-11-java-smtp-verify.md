@@ -14,14 +14,18 @@ tags:
 {% highlight java %}
 package com.inspur.utils;
 
+import java.security.GeneralSecurityException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
 import javax.mail.MessagingException;
 import javax.mail.NoSuchProviderException;
+import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
+
+import com.sun.mail.util.MailSSLSocketFactory;
 
 public class CheckSmtp {
     private String host;
@@ -42,11 +46,42 @@ public class CheckSmtp {
     public Map<String, String> check() {
         Map<String, String> res = new HashMap<String, String>();
         Properties props = new Properties();
+        props.put("mail.transport.protocol", "smtp");
         props.put("mail.smtp.host", host);
         props.put("mail.smtp.port", port);
         props.put("mail.smtp.auth", "true");
 
-        Session session = Session.getInstance(props);
+        if (ssl) {
+           props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+           props.put("mail.smtp.port", 465);
+          }
+       if (tls) {
+           MailSSLSocketFactory sf;
+           try {
+               sf = new MailSSLSocketFactory();
+               sf.setTrustAllHosts(true);
+               props.put("mail.smtp.socketFactory.class", sf);
+           } catch (GeneralSecurityException e) {
+               // TODO Auto-generated catch block
+               e.printStackTrace();
+           }
+           props.put("mail.smtp.port", 587);
+           props.put("mail.smtp.starttls.enable", true);
+           props.put("mail.smtp.ssl.trust", "*");
+          }
+
+        // 普通邮箱验证
+        // Session session = Session.getInstance(props);
+        // qq邮箱验证
+        Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+
+            protected PasswordAuthentication getPasswordAuthentication() {
+
+                    // 使用qq邮箱，验证及授权太麻烦，首先要在qq邮箱账户安全选项中开启smtp服务，然后还要发送短信获取授权码，就是下面nxmq...这一坨
+                    // 简直太麻烦，最好不要用qq邮箱
+                    return new PasswordAuthentication("980829088@qq.com", "nxmqvyqabwkfgsfhe");
+            }
+    });
 //        Transport transport = null;
         try {
             Transport transport = session.getTransport("smtp");
@@ -78,4 +113,3 @@ public class CheckSmtp {
 - [JavaMail Session文档](https://javamail.java.net/nonav/docs/api/javax/mail/Session.html)
 - [JavaMail SMTP服务器](http://www.yiibai.com/javamail_api/javamail_api_smtp_servers.html)
 - [java实现基于SMTP发送邮件的方法](http://www.jb51.net/article/69597.htm)
-
