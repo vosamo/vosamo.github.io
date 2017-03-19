@@ -138,13 +138,14 @@ dt {
     font-weight: 700;
 }
 pre {
-    border-left: 6px solid #edebea;
+    #border-left: 6px solid #edebea;
+    border:1px solid #ccc;
     overflow: auto;
     font-family: monospace;
     font-size: 14px;
     padding: 12px;
     margin: 0 0 24px;
-	background-color: #f3f3f3;
+	background-color: #f8f8f8;
     line-height: 1.5;
 }
 p code {
