@@ -139,7 +139,8 @@ dt {
 }
 pre {
     #border-left: 6px solid #edebea;
-    border:1px solid #ccc;
+    border: 1px solid #ccc;
+    border-radius: 3px;
     overflow: auto;
     font-family: monospace;
     font-size: 14px;
